@@ -1,0 +1,180 @@
+{
+  "customerCode": "C001",
+  "typeOfCustomer": "B",
+  "primaryContact": {
+    "id": "231",
+    "name": "Earl, Holley",
+    "address": "1 Blue Jays Way, Toronto, ON, M5V 1J1, Canada",
+    "emailAddress": "famousholl@who.com",
+    "secondEmail": "hearl@cse.unl.edu",
+    "firstName": "Earl",
+    "lastName": " Holley"
+  },
+  "name": "University of Nebraska-Lincoln",
+  "address": "259 Avery Hall,Lincoln,NE,68588,USA"
+}
+{
+  "customerCode": "C002",
+  "typeOfCustomer": "B",
+  "primaryContact": {
+    "id": "944c",
+    "name": "McCoy,Sylvester",
+    "address": "1060 West Addison Street,Chicago,IL,60613,USA",
+    "emailAddress": "smccoy@cubs.com",
+    "secondEmail": "sylve_mccoy13@gmail.com",
+    "firstName": "McCoy",
+    "lastName": "Sylvester"
+  },
+  "name": "Stark Industries",
+  "address": "912 E Kirwin Ave, Salina, KS, 67401,USA"
+}
+{
+  "customerCode": "C003",
+  "typeOfCustomer": "R",
+  "primaryContact": {
+    "id": "306a",
+    "name": "Pertwee, Jon",
+    "address": "123 N 1st Street,Omaha,NE,68116,USA",
+    "emailAddress": "j_pertwee@gmail.com",
+    "secondEmail": "jon@venture.com",
+    "firstName": "Pertwee",
+    "lastName": " Jon"
+  },
+  "name": "Tom Eddision",
+  "address": "1182 James Ave N,Minneapolis, MN,55411,USA"
+}
+{
+  "customerCode": "C004",
+  "typeOfCustomer": "B",
+  "primaryContact": {
+    "id": "321f",
+    "name": "Sampson, Brock",
+    "address": "321 Bronx Street,New York,NY,10004,USA",
+    "emailAddress": "",
+    "secondEmail": "",
+    "firstName": "Sampson",
+    "lastName": " Brock"
+  },
+  "name": "National Soccer Administration",
+  "address": "151 Easton Ave, Waterloo,IA, 50702,USA"
+}
+{
+  "customerCode": "C005",
+  "typeOfCustomer": "R",
+  "primaryContact": {
+    "id": "bbchar",
+    "name": "Tennant, Kaylee",
+    "address": "800 West 7th Street, Albuquerque, NM, 87105,USA",
+    "emailAddress": "",
+    "secondEmail": "",
+    "firstName": "Tennant",
+    "lastName": " Kaylee"
+  },
+  "name": "Vandelay Apartments",
+  "address": "1060 West Addison,Chicago,IL,60601,USA"
+}
+{
+  "customerCode": "C006",
+  "typeOfCustomer": "R",
+  "primaryContact": {
+    "id": "321dr",
+    "name": "Baker, Samantha ",
+    "address": "Avery Hall,Lincoln,NE,68503,USA",
+    "emailAddress": "sb@baker.com",
+    "secondEmail": "",
+    "firstName": "Baker",
+    "lastName": " Samantha "
+  },
+  "name": "Mr. Smith\u0027s #1 Supply Co. Inc.",
+  "address": "456 West 7th St.,Omaha,NE,68500,USA"
+}
+{
+  "customerCode": "C001",
+  "typeOfCustomer": "B",
+  "primaryContact": {
+    "id": "231",
+    "name": "Earl, Holley",
+    "address": "1 Blue Jays Way, Toronto, ON, M5V 1J1, Canada",
+    "emailAddress": "famousholl@who.com",
+    "secondEmail": "hearl@cse.unl.edu",
+    "firstName": "Earl",
+    "lastName": " Holley"
+  },
+  "name": "University of Nebraska-Lincoln",
+  "address": "259 Avery Hall,Lincoln,NE,68588,USA"
+}
+{
+  "customerCode": "C002",
+  "typeOfCustomer": "B",
+  "primaryContact": {
+    "id": "944c",
+    "name": "McCoy,Sylvester",
+    "address": "1060 West Addison Street,Chicago,IL,60613,USA",
+    "emailAddress": "smccoy@cubs.com",
+    "secondEmail": "sylve_mccoy13@gmail.com",
+    "firstName": "McCoy",
+    "lastName": "Sylvester"
+  },
+  "name": "Stark Industries",
+  "address": "912 E Kirwin Ave, Salina, KS, 67401,USA"
+}
+{
+  "customerCode": "C003",
+  "typeOfCustomer": "R",
+  "primaryContact": {
+    "id": "306a",
+    "name": "Pertwee, Jon",
+    "address": "123 N 1st Street,Omaha,NE,68116,USA",
+    "emailAddress": "j_pertwee@gmail.com",
+    "secondEmail": "jon@venture.com",
+    "firstName": "Pertwee",
+    "lastName": " Jon"
+  },
+  "name": "Tom Eddision",
+  "address": "1182 James Ave N,Minneapolis, MN,55411,USA"
+}
+{
+  "customerCode": "C004",
+  "typeOfCustomer": "B",
+  "primaryContact": {
+    "id": "321f",
+    "name": "Sampson, Brock",
+    "address": "321 Bronx Street,New York,NY,10004,USA",
+    "emailAddress": "",
+    "secondEmail": "",
+    "firstName": "Sampson",
+    "lastName": " Brock"
+  },
+  "name": "National Soccer Administration",
+  "address": "151 Easton Ave, Waterloo,IA, 50702,USA"
+}
+{
+  "customerCode": "C005",
+  "typeOfCustomer": "R",
+  "primaryContact": {
+    "id": "bbchar",
+    "name": "Tennant, Kaylee",
+    "address": "800 West 7th Street, Albuquerque, NM, 87105,USA",
+    "emailAddress": "",
+    "secondEmail": "",
+    "firstName": "Tennant",
+    "lastName": " Kaylee"
+  },
+  "name": "Vandelay Apartments",
+  "address": "1060 West Addison,Chicago,IL,60601,USA"
+}
+{
+  "customerCode": "C006",
+  "typeOfCustomer": "R",
+  "primaryContact": {
+    "id": "321dr",
+    "name": "Baker, Samantha ",
+    "address": "Avery Hall,Lincoln,NE,68503,USA",
+    "emailAddress": "sb@baker.com",
+    "secondEmail": "",
+    "firstName": "Baker",
+    "lastName": " Samantha "
+  },
+  "name": "Mr. Smith\u0027s #1 Supply Co. Inc.",
+  "address": "456 West 7th St.,Omaha,NE,68500,USA"
+}

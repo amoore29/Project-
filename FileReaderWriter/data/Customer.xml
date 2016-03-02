@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<com.datacontainers.Customer>
+  <customerCode>C001</customerCode>
+  <typeOfCustomer>B</typeOfCustomer>
+  <primaryContact>
+    <id>231</id>
+    <name>Earl, Holley</name>
+    <address>1 Blue Jays Way, Toronto, ON, M5V 1J1, Canada</address>
+    <emailAddress>famousholl@who.com</emailAddress>
+    <secondEmail>hearl@cse.unl.edu</secondEmail>
+    <firstName>Earl</firstName>
+    <lastName> Holley</lastName>
+  </primaryContact>
+  <name>University of Nebraska-Lincoln</name>
+  <address>259 Avery Hall,Lincoln,NE,68588,USA</address>
+</com.datacontainers.Customer><com.datacontainers.Customer>
+  <customerCode>C002</customerCode>
+  <typeOfCustomer>B</typeOfCustomer>
+  <primaryContact>
+    <id>944c</id>
+    <name>McCoy,Sylvester</name>
+    <address>1060 West Addison Street,Chicago,IL,60613,USA</address>
+    <emailAddress>smccoy@cubs.com</emailAddress>
+    <secondEmail>sylve_mccoy13@gmail.com</secondEmail>
+    <firstName>McCoy</firstName>
+    <lastName>Sylvester</lastName>
+  </primaryContact>
+  <name>Stark Industries</name>
+  <address>912 E Kirwin Ave, Salina, KS, 67401,USA</address>
+</com.datacontainers.Customer><com.datacontainers.Customer>
+  <customerCode>C003</customerCode>
+  <typeOfCustomer>R</typeOfCustomer>
+  <primaryContact>
+    <id>306a</id>
+    <name>Pertwee, Jon</name>
+    <address>123 N 1st Street,Omaha,NE,68116,USA</address>
+    <emailAddress>j_pertwee@gmail.com</emailAddress>
+    <secondEmail>jon@venture.com</secondEmail>
+    <firstName>Pertwee</firstName>
+    <lastName> Jon</lastName>
+  </primaryContact>
+  <name>Tom Eddision</name>
+  <address>1182 James Ave N,Minneapolis, MN,55411,USA</address>
+</com.datacontainers.Customer><com.datacontainers.Customer>
+  <customerCode>C004</customerCode>
+  <typeOfCustomer>B</typeOfCustomer>
+  <primaryContact>
+    <id>321f</id>
+    <name>Sampson, Brock</name>
+    <address>321 Bronx Street,New York,NY,10004,USA</address>
+    <emailAddress></emailAddress>
+    <secondEmail></secondEmail>
+    <firstName>Sampson</firstName>
+    <lastName> Brock</lastName>
+  </primaryContact>
+  <name>National Soccer Administration</name>
+  <address>151 Easton Ave, Waterloo,IA, 50702,USA</address>
+</com.datacontainers.Customer><com.datacontainers.Customer>
+  <customerCode>C005</customerCode>
+  <typeOfCustomer>R</typeOfCustomer>
+  <primaryContact>
+    <id>bbchar</id>
+    <name>Tennant, Kaylee</name>
+    <address>800 West 7th Street, Albuquerque, NM, 87105,USA</address>
+    <emailAddress></emailAddress>
+    <secondEmail></secondEmail>
+    <firstName>Tennant</firstName>
+    <lastName> Kaylee</lastName>
+  </primaryContact>
+  <name>Vandelay Apartments</name>
+  <address>1060 West Addison,Chicago,IL,60601,USA</address>
+</com.datacontainers.Customer><com.datacontainers.Customer>
+  <customerCode>C006</customerCode>
+  <typeOfCustomer>R</typeOfCustomer>
+  <primaryContact>
+    <id>321dr</id>
+    <name>Baker, Samantha </name>
+    <address>Avery Hall,Lincoln,NE,68503,USA</address>
+    <emailAddress>sb@baker.com</emailAddress>
+    <secondEmail></secondEmail>
+    <firstName>Baker</firstName>
+    <lastName> Samantha </lastName>
+  </primaryContact>
+  <name>Mr. Smith&apos;s #1 Supply Co. Inc.</name>
+  <address>456 West 7th St.,Omaha,NE,68500,USA</address>
+</com.datacontainers.Customer>

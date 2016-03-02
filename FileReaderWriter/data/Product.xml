@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<com.datacontainers.Equipment>
+  <pricePerUnit>2500.0</pricePerUnit>
+</com.datacontainers.Equipment><com.datacontainers.Equipment>
+  <pricePerUnit>124.99</pricePerUnit>
+</com.datacontainers.Equipment><com.datacontainers.Equipment>
+  <pricePerUnit>63.99</pricePerUnit>
+</com.datacontainers.Equipment><com.datacontainers.Equipment>
+  <pricePerUnit>200.00</pricePerUnit>
+</com.datacontainers.Equipment><com.datacontainers.Service>
+  <activationFee>2000.00</activationFee>
+  <annualFee>12000.00</annualFee>
+</com.datacontainers.Service><com.datacontainers.Consultation>
+  <technicianPersonCode>aef1</technicianPersonCode>
+  <hourlyFee>25.00</hourlyFee>
+</com.datacontainers.Consultation><com.datacontainers.Consultation>
+  <technicianPersonCode>321nd</technicianPersonCode>
+  <hourlyFee>150.00</hourlyFee>
+</com.datacontainers.Consultation><com.datacontainers.Service>
+  <activationFee>0.00</activationFee>
+  <annualFee>35000.00</annualFee>
+</com.datacontainers.Service><com.datacontainers.Service>
+  <activationFee>350.00</activationFee>
+  <annualFee>1200.00</annualFee>
+</com.datacontainers.Service>
