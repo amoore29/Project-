@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.lang.Math;
+import java.text.ParseException;
 
 import com.datacontainers.Address;
 import com.datacontainers.Consultation;
@@ -110,7 +112,7 @@ public class InputReader {
 			else if(tokens[1].toLowerCase().equals("s")){
 				String activationFee = tokens[3];
 				String annualFee = tokens[4];
-				e = new Service(code, type, name, activationFee, annualFee);
+				e = new Service(code, type, name, activationFee, annualFee, "");
 			}
 		
 			//If the product is type C it sets it up accordingly
@@ -157,32 +159,88 @@ public class InputReader {
 			
 			String productList = tokens[4];
 			
-			ArrayList<Product> products = new ArrayList<Product>();
+			ArrayList<Product> products2 = new ArrayList<Product>();
 			ArrayList<String> productInformation = new ArrayList<String>();
 			
+			//Deliminates and sorts relevant info from the invoice data file
 			String[]tokens2 = productList.split(",");
 			for(int i = 0; i < tokens2.length; i++){
 				String[] tokens3 = tokens2[i].split(":");
 				for(Product aProduct : products){
 					if(tokens3[0].equals(aProduct.getCode())){
-						products.add(aProduct);
+						products2.add(aProduct);
+						if(aProduct instanceof Service){
+							((Service)aProduct).setDate(tokens3[1] + ":" + tokens3[2]);
+						}
 					}
 					productInformation.add(tokens3[1]);
 				}
 			}
 			
-			e = new Invoice(invoiceCode, customers, dateOfInvoice, person, products, productInformation);
+			e = new Invoice(invoiceCode, customers, dateOfInvoice, person, products2, productInformation);
 			invoice.add(e);
 		}
 		sc.close();
 		return invoice;
 }
-	
-	public void print(){
-
+	//Prints the invoice with this god awful amount of print statements
+	public void print() throws NumberFormatException, ParseException{
+		 
+		
 		System.out.println("=================================");
 		System.out.println("INVOICE DETAIL REPORTS");
-		System.out.println("=================================" + "\n");
+		System.out.print("=================================" + "\n");
+		System.out.printf("%-8s %-40s %-33s %-17s %-12s %-12s %s %n","Invoice","Customer","Salesperson","SubTotal","Fees","Taxes","Total");
+		
+		double subTotalTotal = 0.0;
+		double taxesTotal = 0.0;
+		double feesTotal = 0.0;
+		double finalTotalOmitCompliance = 0.0;
+		for(Invoice aInvoice : invoice){
+			ArrayList<Product> product2 = aInvoice.getProducts(); 
+			
+			
+			for(int i =0; i< product2.size();i++){
+				Product aProduct= product2.get(i);
+			
+			
+			if(aProduct instanceof Equipment){
+				((Equipment)aProduct).setNumUnits(aInvoice.getProductInformation().get(i));
+				((Equipment)aProduct).setTotalCost();
+				double subTotal = ((Double.parseDouble(((Equipment)aProduct).getPricePerUnit()) * Double.parseDouble(aInvoice.getProductInformation().get(i))));
+				double taxes = subTotal * .07;
+				double fees = 0.0;
+				subTotalTotal += subTotal;
+				taxesTotal += taxes;
+				feesTotal += fees;
+				finalTotalOmitCompliance = subTotalTotal + taxesTotal + feesTotal;
+			}
+			if(aProduct instanceof Consultation){
+				((Consultation)aProduct).setHours(aInvoice.getProductInformation().get(i));
+				((Consultation)aProduct).setTotalCost();
+				double subTotal = ((Consultation)aProduct).GetTotalCost() ;
+				double taxes = subTotal * .0425;
+				double fees = 150.00;
+				subTotalTotal += subTotal;
+				taxesTotal += taxes;
+				feesTotal += fees;
+				finalTotalOmitCompliance = subTotalTotal + taxesTotal + feesTotal;
+			}
+			if(aProduct instanceof Service){
+				((Service)aProduct).setTotalCost();
+				double subTotal = ((Service)aProduct).getTotalCost();
+				double taxes = subTotal * .0425;
+				double fees = Double.parseDouble(((Service)aProduct).getActivationFee()) ;
+				subTotalTotal += subTotal;
+				taxesTotal += taxes;
+				feesTotal += fees;
+				finalTotalOmitCompliance = subTotalTotal + taxesTotal + feesTotal;
+				}
+			}
+			System.out.printf("%-8s %-40s %-30s  %9.2f %18.2f %9.2f %9.2f %n",aInvoice.getInvoiceCode(),aInvoice.getCustomer().getName(), aInvoice.getPerson().getName(),subTotalTotal,feesTotal,taxesTotal,finalTotalOmitCompliance);			
+		}
+		System.out.println("===================================================================================================================================");
+		System.out.printf("%-6s %9.2f %18.2f %9.2f %9.2f %n %n","TOTAL", subTotalTotal,feesTotal,taxesTotal,finalTotalOmitCompliance);
 		
 		for(Invoice aInvoice : invoice){
 			System.out.println("----------------------------------");
@@ -190,37 +248,79 @@ public class InputReader {
 			System.out.println("----------------------------------");
 			System.out.println("Salesperson: " + aInvoice.getPerson().getName());
 			System.out.println("Customer:");
-			System.out.println(aInvoice.getCustomer().getName() + " (" + aInvoice.getCustomer().getCustomerCode() + ")");
-			System.out.println(aInvoice.getCustomer().getPrimaryContact().getName());
-			System.out.println(aInvoice.getCustomer().getAddress());
-			System.out.println("----------------------------------");
-			System.out.println("Code  " + "Item");
-			ArrayList<Product> product2 = aInvoice.getProducts();  
-			for(Product aProduct : product2){
-			System.out.println(aProduct.getName());
+			System.out.println("    " + aInvoice.getCustomer().getName() + " (" + aInvoice.getCustomer().getCustomerCode() + ")");
+			
+			double complianceFee = 0.0;
+			if(aInvoice.getCustomer().getTypeOfCustomer().equals("R")){
+				System.out.println("    (Residential)");
+				complianceFee += 125.00;
+			}
+			if(aInvoice.getCustomer().getTypeOfCustomer().equals("B")){
+				System.out.println("    (Buisness)");
 			}
 			
 			
+			System.out.println("    " + aInvoice.getCustomer().getPrimaryContact().getName());
+			System.out.println("    " + aInvoice.getCustomer().getAddress());
+			System.out.println("----------------------------------");
+			System.out.printf("%-8s %-61s %7s %11s %12s %12s %n","Code","Item","SubTotal","Taxes","Fees","Total");
 			
 			
 			
+			ArrayList<Product> product2 = aInvoice.getProducts(); 
+			 subTotalTotal = 0.0;
+			 taxesTotal = 0.0;
+			 feesTotal = 0.0;
+			 finalTotalOmitCompliance = 0.0;
+			
+			for(int i =0; i< product2.size();i++){
+			Product aProduct= product2.get(i);
+			
+			//Finds different instances of a product and does the calculations 
+			if(aProduct instanceof Equipment){
+				((Equipment)aProduct).setNumUnits(aInvoice.getProductInformation().get(i));
+				((Equipment)aProduct).setTotalCost();
+				double subTotal = ((Double.parseDouble(((Equipment)aProduct).getPricePerUnit()) * Double.parseDouble(aInvoice.getProductInformation().get(i))));
+				double taxes = subTotal * .07;
+				double fees = 0.0;
+				System.out.printf("%-8s %-8s %-43s %-13.2f %-14.2f %-8.2f %n",aProduct.getCode(),aProduct.getName(),((Equipment)aProduct).formatting(),subTotal,taxes, 0.00);
+				subTotalTotal += subTotal;
+				taxesTotal += taxes;
+				feesTotal += fees;
+				finalTotalOmitCompliance = subTotalTotal + taxesTotal + feesTotal;
+			}
+			if(aProduct instanceof Consultation){
+				((Consultation)aProduct).setHours(aInvoice.getProductInformation().get(i));
+				((Consultation)aProduct).setTotalCost();
+				double subTotal = ((Consultation)aProduct).GetTotalCost();
+				double taxes = subTotal * .0425;
+				double fees = 150.00;
+				System.out.printf("%-8s %-8s %-38s %-13.2f %-14.2f %-8.2f %n",aProduct.getCode(),aProduct.getName(),((Consultation)aProduct).formatting(),subTotal,taxes,fees);
+				subTotalTotal += subTotal;
+				taxesTotal += taxes;
+				feesTotal += fees;
+				finalTotalOmitCompliance = subTotalTotal + taxesTotal + feesTotal;
+			}
+			if(aProduct instanceof Service){
+				((Service)aProduct).setTotalCost();
+				double subTotal = ((Service)aProduct).getTotalCost();
+				double taxes = subTotal * .0425;
+				double fees = Double.parseDouble(((Service)aProduct).getActivationFee());
+				System.out.printf("%-8s %-8s %-38s %-13.2f %-14.2f %-8.2f %n",aProduct.getCode(),aProduct.getName(),((Service)aProduct).formatting(),subTotal,taxes,fees);
+				subTotalTotal += subTotal;
+				taxesTotal += taxes;
+				feesTotal += fees;
+				finalTotalOmitCompliance = subTotalTotal + taxesTotal + feesTotal;
+			}
+			}
+			System.out.printf("%117s %n","===============================================");		
+			System.out.printf("%-66s %12.2f %12.2f %12.2f %12.2f %n","SUB-TOTALS",subTotalTotal,taxesTotal,feesTotal,finalTotalOmitCompliance);
+			System.out.printf("%-113s %-2.2f %n","COMPLIANCE FEE",complianceFee);
+			System.out.printf("%-109s %2.2f %n","FINAL TOTAL",(finalTotalOmitCompliance + complianceFee));
 			System.out.println("\n");
-//			
-//			Salesperson: Eccleston, Chris
-//			Customer: 
-//				Stark Industries (C002)
-//				(Business)
-//				McCoy, Sylvester
-//				912 E Kirwin Ave
-//				Salina, KS  67401  USA
-//			----------------------------------
-//			Code     Item                                                            SubTotal       Taxes        Fees       Total    
-//			b29e     Satellite Reciever  (2 units at 2500.0/unit)                 $   5000.00 $    350.00 $      0.00
-//			90fa     Long Distance Service  (181 days at $12000.0/yr)             $   5950.68 $    252.90 $   2000.00
-//			                                                                      ===============================================
-//			SUB-TOTALS                                                            $  10950.68 $    602.90 $   2000.00 $  13553.59
-//			COMPLIANCE FEE                                                                                            $      0.00
-//			FINAL TOTAL                                                                                               $  13553.59
+			                 
+			
+			
 
 			
 			

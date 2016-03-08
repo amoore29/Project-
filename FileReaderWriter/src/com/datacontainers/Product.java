@@ -1,6 +1,6 @@
 package com.datacontainers;
 
-public abstract class Product {
+public class Product {
 
 	private String code = "";
 	private String type = "";

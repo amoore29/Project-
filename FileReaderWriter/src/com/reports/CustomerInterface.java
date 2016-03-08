@@ -1,6 +1,7 @@
 package com.reports;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.text.ParseException;
 import java.util.ArrayList;
 
 import com.fileReader.InputReader;
@@ -13,8 +14,10 @@ public class CustomerInterface {
  * This program is supposed to read files and export them in xml, fml.
  * @param args
  * @throws FileNotFoundException
+ * @throws ParseException 
+ * @throws NumberFormatException 
  */
-	public static void main(String[] args) throws FileNotFoundException {
+	public static void main(String[] args) throws FileNotFoundException, NumberFormatException, ParseException {
 	
 		
 		String personfile = "data/Persons.dat";
